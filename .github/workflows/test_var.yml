@@ -13,4 +13,6 @@ jobs:
     # if: github.GITHUB_REF_NAME == 'master'
     runs-on: ubuntu-latest
     steps:
-      - run: echo $github.GITHUB_REF_NAME  
+      - run: |
+          echo $github.GITHUB_REF_NAME  
+          echo $var1
