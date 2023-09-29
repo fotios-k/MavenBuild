@@ -29,11 +29,12 @@ jobs:
   
   deploy:
 
-    if: ${{ github.GITHUB_REF_NAME }} == 'master'
+    if: github.GITHUB_REF_NAME == 'master'
     runs-on: ubuntu-latest
     needs: build
-
+    
     steps:
+      - run: echo ${{ github.GITHUB_REF_NAME }}
       - uses: actions/download-artifact@v3
         with:
           name: buildArtifact
