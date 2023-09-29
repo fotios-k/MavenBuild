@@ -7,7 +7,7 @@ on:
 jobs:
   dummy_job:
 
-    if: github.REF_NAME == "master"
+    if: github.REF_NAME == 'master'
     runs-on: ubuntu-latest
     steps:
       - name: ${{ github.ref }}
