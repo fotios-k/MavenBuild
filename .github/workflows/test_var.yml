@@ -12,6 +12,7 @@ jobs:
     if: github.REF_NAME == 'master'
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: ${{ github.ref }}
+        run: |
           echo $github.ref
           echo $(($x + $y))
