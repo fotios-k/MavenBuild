@@ -1,8 +1,6 @@
 
 name: Testing Variables
 on:
-  push:
-    branches: [ "master" ]
   workflow_dispatch:  
 env: 
   x: 5
@@ -11,9 +9,8 @@ env:
 jobs:
   dummy_job:
 
-    # if: github.GITHUB_REF_NAME == 'master'
+    if: github.REF_NAME == 'master'
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo github.ref_name
           echo $(($x + $y))
