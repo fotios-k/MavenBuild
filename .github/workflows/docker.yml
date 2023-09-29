@@ -1,0 +1,16 @@
+name: Building Docker Images
+
+on:
+  push:
+    branches: "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        docker images
+      
+      
+    
+    
