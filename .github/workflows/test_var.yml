@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $github.ref_name
+          echo github.ref_name
           echo $(($x + $y))
