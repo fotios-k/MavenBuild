@@ -5,7 +5,8 @@ on:
     branches: [ "master" ]
   workflow_dispatch:  
 env: 
-  var1: '1'
+  x: 5
+  y: 3
 
 jobs:
   dummy_job:
@@ -14,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $github.GITHUB_REF_NAME  
-          echo $var1
+          echo $github.ref_name
+          echo $(($x + $y))
