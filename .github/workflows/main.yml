@@ -36,7 +36,7 @@ jobs:
     steps:
       - run: echo $fotis
         env:
-          fotis: ${{GITHUB_ACTION}}
+          fotis: ${{github.REF_NAME}}
       - uses: actions/download-artifact@v3
         with:
           name: buildArtifact        
