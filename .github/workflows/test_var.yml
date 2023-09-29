@@ -1,0 +1,16 @@
+
+name: Testing Variables
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:  
+env: 
+  var1: '1'
+
+jobs:
+  dummy_job:
+
+    # if: github.GITHUB_REF_NAME == 'master'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $github.GITHUB_REF_NAME  
