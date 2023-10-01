@@ -1,4 +1,4 @@
-name: CI
+name: CI with Docker
 
 on:
   push:
@@ -70,5 +70,5 @@ jobs:
          scp: |
           'Dockerfile' => /tmp/Docker
          last_ssh: |
-          docker run -d  -P ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
+          docker run -d  -P ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest 
 
