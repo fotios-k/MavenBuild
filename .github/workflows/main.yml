@@ -1,7 +1,5 @@
 name: CI with GitHub Actions
 on:
-  push:
-    branches: [ "master" ]
   workflow_dispatch:  
 
 jobs:
