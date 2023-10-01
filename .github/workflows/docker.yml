@@ -40,7 +40,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: buildArtifact
-          
+      - run: ls -ltr  
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
