@@ -70,5 +70,5 @@ jobs:
          scp: |
           'Dockerfile' => /tmp/Docker
          last_ssh: |
-          docker run -d ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
+          docker run -d  -P ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
 
