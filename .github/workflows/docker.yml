@@ -43,12 +43,32 @@ jobs:
           name: buildArtifact
           path: target/java-example.war
       - run: ls -ltr  
-      #- name: Build and push
-      #  uses: docker/build-push-action@v5
-      #  with:
-      #    push: true
-      #    context: .
-      #    tags: ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest
-      - run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          context: .
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest
+      #- run: |
+      #    docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest .
+      #    docker push ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest
+
+      - name: Deploy Application using SSH
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        env:
+         WELCOME: "ssh scp ssh pipelines"
+         LASTSSH: "Doing something after copying"
+        with:
+         host: 'fotioskoutsoukosl0034.simplilearnlabs.com'
+         user: 'fotioskoutsouko'
+         pass: 'tsouko0A@3ykwy'
+         port: 42006
+         connect_timeout: 10s
+         first_ssh: |
+          rm -rf /tmp/Docker
+          mkdir -p /tmp/Docker
+         scp: |
+          'Dockerfile' => /tmp/Docker
+         last_ssh: |
+          docker run -d ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
+
