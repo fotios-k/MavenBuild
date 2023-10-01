@@ -41,7 +41,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: buildArtifact
-          path: /home/runner/work/MavenBuild/MavenBuild/target/java-example.war
+          path: target/java-example.war
       - run: ls -ltr  
       - name: Build and push
         uses: docker/build-push-action@v5
