@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: maven_build-container
-        image: ${{ secrets.DOCKERHUB_USERNAME }}/maven_build:latest
+        image: vfotios/maven_build:latest
         ports:
         - containerPort: 8080
         resources:
